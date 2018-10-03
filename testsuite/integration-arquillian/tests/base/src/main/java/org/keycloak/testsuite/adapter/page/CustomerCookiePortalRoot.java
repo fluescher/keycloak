@@ -36,7 +36,7 @@ public class CustomerCookiePortalRoot extends AbstractPageWithInjectedUrl {
     @Override
     public URL getInjectedUrl() {
         try {
-            return new URL(url.toString().replace("/ROOT", "/"));
+            return new URL(url.toString()+"/");
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -47,6 +47,6 @@ public class CustomerCookiePortalRoot extends AbstractPageWithInjectedUrl {
     }
 
     public void navigateTo(String relative) {
-        URLUtils.navigateToUri(getInjectedUrl() + relative, true);
+        URLUtils.navigateToUri(getInjectedUrl() + relative);
     }
 }

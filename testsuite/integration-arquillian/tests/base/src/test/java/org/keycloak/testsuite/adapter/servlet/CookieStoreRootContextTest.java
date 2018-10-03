@@ -49,8 +49,6 @@ import org.openqa.selenium.WebDriver;
  */
 @AppServerContainer(ContainerConstants.APP_SERVER_UNDERTOW)
 @AppServerContainer(ContainerConstants.APP_SERVER_WILDFLY)
-@AppServerContainer(ContainerConstants.APP_SERVER_WILDFLY10)
-@AppServerContainer(ContainerConstants.APP_SERVER_WILDFLY9)
 @AppServerContainer(ContainerConstants.APP_SERVER_EAP)
 @AppServerContainer(ContainerConstants.APP_SERVER_EAP6)
 public class CookieStoreRootContextTest extends DemoServletsAdapterTest {
@@ -74,7 +72,7 @@ public class CookieStoreRootContextTest extends DemoServletsAdapterTest {
     protected static WebArchive customerCookiePortalRoot() {
         WebArchive original = servletDeployment(CustomerCookiePortalRoot.DEPLOYMENT_NAME, AdapterActionsFilter.class, CustomerServlet.class, ErrorServlet.class, ServletTestUtils.class);
 
-        WebArchive archive = ShrinkWrap.create(WebArchive.class, "ROOT.war");
+        WebArchive archive = ShrinkWrap.create(WebArchive.class, ".war");
 
         archive.merge(original);
 
